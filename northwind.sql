@@ -1,0 +1,24 @@
+SELECT * FROM customers;
+SELECT distinct Country FROM customers;
+SELECT * FROM customers WHERE CustomerID LIKE'BL%';
+SELECT * FROM orders LIMIT 100;
+SELECT * FROM customers WHERE PostalCode IN ('1010','3012','12209','05023');
+SELECT * FROM orders WHERE ShipRegion IS NOT NULL;
+SELECT * FROM customers ORDER BY Country;
+SELECT * FROM customers ORDER BY City;
+INSERT INTO customers (CustomerID,CompanyName,ContactName,ContactTitle,Address,  City,Region, PostalCode,Country,Phone,Fax) 
+VALUES ('GC','Grand Circus','Rana','Student','1570 Woodward','Westland','MI','48185','USA','7342453612','3132654578');
+UPDATE orders SET ShipRegion = 'EuroZone' WHERE ShipCountry = 'France';
+DELETE FROM `order details` WHERE Quantity = 1;
+SELECT AVG(quantity) FROM `order details`;
+SELECT MAX(quantity) FROM `order details`;
+SELECT MIN(quantity) FROM `order details`;
+SELECT AVG(quantity) orderID FROM `order details` GROUP BY orderID;
+SELECT MAX(quantity) orderID FROM `order details` GROUP BY orderID;
+SELECT MIN(quantity) orderID FROM `order details` GROUP BY orderID;
+SELECT customerID FROM orders WHERE orderId = '10290';
+SELECT * FROM orders INNER JOIN customers ON orders.CustomerID = customers.CustomerID;
+SELECT * FROM orders LEFT JOIN customers ON orders.CustomerID = customers.CustomerID;
+SELECT * FROM orders RIGHT JOIN customers ON orders.CustomerID = customers.CustomerID;
+SELECT firstname FROM employees WHERE reportsTo IS NULL;
+SELECT firstname FROM employees WHERE reportsTo = 2;
